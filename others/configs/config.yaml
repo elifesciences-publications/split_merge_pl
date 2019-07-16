@@ -1,0 +1,60 @@
+Key_base: /broad/IDP-Dx_storage/MOC/Key_files/
+Seq_base: /broad/IDP-Dx_storage/MOC/RawSeqData/
+Temp_path: /idi/moc_ec/RNASeq_proj/GP_test/
+Bam_path: /idi/moc_ec/idpweb/data/GP_test/
+Results_path: /idi/moc_ec/GP_test/RNASeq_results/
+DE_path: /broad/IDP-Dx_storage/RNASeq_results/
+Transfer_path: /idi/moc_ec/RNASeq_proj/GP_test/transfer/
+Data_dir: /idi/moc_ec/GP_test/datadir/
+
+
+#----------------------------
+# Most of the time the host can be either mouse or human. It is expected that
+# the host reference would be prepated
+
+Suffix_s1: .unmapped.1.fastq
+Suffix_s2: .unmapped.2.fastq
+Suffix_ne:  _L001_R1_merged.fastq
+
+strand_dir:  reverse 
+RtS_dict_file:  /broad/IDP-Dx_work/nirmalya/split_merge_pl/others/barcodes/rts_bcs.txt 
+
+P7:             Index1_Seq
+P5:             Index2_Seq
+Proj:           Project_ID
+ID:             Sample_ID
+LC_method:      LC_method
+bc:             Inline_Seq
+Seq_type:       Sequencer
+Seq_dir:        Directory
+Seq_file:       Path_to_SeqFile
+Flowcell:       Flowcell
+Lane:           Lane
+Ref_accession:  Bacterial_reference
+Host_reference: Host_reference
+Strain:         Strain_ID
+Read_pairing:   Read_pairing
+Path_to_SeqFile: Path_to_SeqFile
+
+#----------------------------------------------------
+# This would be the entries that the user should not change,
+# unless required.
+
+delim: /
+dict_builder: /broad/IDP-Dx_work/nirmalya/split_merge_pl/others/BarcodeSplitter/dict_builder
+bc_splitter_rts: /broad/IDP-Dx_work/nirmalya/split_merge_pl/others/BarcodeSplitter/bc_splitter_rts
+bc_splitter_rts_se: /broad/IDP-Dx_work/nirmalya/split_merge_pl/others/BarcodeSplitter/bc_splitter_rts_se
+cutadapt: /broad/IDP-Dx_work/nirmalya/local/bin/cutadapt
+UGER_cbp: /broad/IDP-Dx_work/nirmalya/split_merge_pl/others/ugetools/UGE_SUBMISSIONS/UGER_cmd_batch_processor.py
+# thread count and memory for host side alignment:q
+patho_thread_count: 1
+patho_memory: 8
+moc_file_copy_1: /broad/IDP-Dx_storage/MOC/files/MOC_RNA-Seq_data_UserGuide_CURRENT.docx 
+read_trimmer: /broad/IDP-Dx_work/nirmalya/split_merge_pl/others/read_trimmer/read_trimmer
+
+# Added as a fix of issue 41 (https://github.com/broadinstitute/PipelineII/issues/41) 
+Pipeline_bcLog: /broad/IDP-Dx_work/nirmalya/split_merge_pl/shell_scripts/Pipeline_bcLog.sh
+corr_script: /broad/IDP-Dx_work/nirmalya/split_merge_pl/rscripts/corr2.R
+Data_finish_script: /broad/IDP-Dx_work/nirmalya/split_merge_pl/shell_scripts/Data_finish.sh
+bcLog_metrics_script: /broad/IDP-Dx_work/nirmalya/split_merge_pl/shell_scripts/Pipeline_bcLog.sh
+trim_script: /broad/IDP-Dx_work/nirmalya/split_merge_pl/shell_scripts/fastq_trim2.sh
